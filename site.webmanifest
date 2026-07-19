@@ -1,0 +1,11 @@
+{
+  "name": "polyglotSQL",
+  "short_name": "polyglotSQL",
+  "icons": [
+    { "src": "/polyglot-sql-r/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/polyglot-sql-r/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#101b33",
+  "background_color": "#101b33",
+  "display": "standalone"
+}
