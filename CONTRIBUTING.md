@@ -31,9 +31,8 @@ archive used for offline builds), and regenerates `inst/COPYRIGHTS`.
 Then:
 
 1.  update `Config/polyglotSQL/upstream` in `DESCRIPTION`;
-2.  run the test suite
-    ([`devtools::test()`](https://devtools.r-lib.org/reference/test.html)),
-    which asserts the linked crate version matches `DESCRIPTION`;
+2.  run the test suite (`devtools::test()`), which asserts the linked
+    crate version matches `DESCRIPTION`;
 3.  mention the upgrade in `NEWS.md`.
 
 ## Publishing the pkgdown site (GitHub Pages)

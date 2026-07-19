@@ -4,19 +4,19 @@
 
 - **André Leite**. Author, maintainer.
 
-- **Tobias Müller**. Author, copyright holder.\
+- **Tobias Müller**. Author, copyright holder.  
   Author of the bundled 'polyglot-sql' Rust crate (Polyglot project)
 
-- **Toby Mao**. Author, copyright holder.\
+- **Toby Mao**. Author, copyright holder.  
   Author of SQLGlot, from which Polyglot is derived
 
-- **The authors of the vendored Rust dependencies**. Copyright holder.\
+- **The authors of the vendored Rust dependencies**. Copyright holder.  
   see inst/COPYRIGHTS
 
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/milkway/polyglot-sql-r/blob/HEAD/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/milkway/polyglot-sql-r/blob/main/DESCRIPTION)
 
 Leite A, Müller T, Mao T (2026). *polyglotSQL: SQL Parsing, Analysis and
 Dialect Translation*. R package version 0.1.0,

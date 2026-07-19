@@ -40,7 +40,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="logo.svg" class="logo" alt=""><h1>Contributing to polyglotSQL</h1>
-      <small class="dont-index">Source: <a href="https://github.com/milkway/polyglot-sql-r/blob/HEAD/CONTRIBUTING.md" class="external-link"><code>CONTRIBUTING.md</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/milkway/polyglot-sql-r/blob/main/CONTRIBUTING.md" class="external-link"><code>CONTRIBUTING.md</code></a></small>
     </div>
 
 <div id="contributing-to-polyglotsql" class="section level1">
@@ -49,9 +49,9 @@
 <h2 id="development-setup">Development setup<a class="anchor" aria-label="anchor" href="#development-setup"></a></h2>
 <p>You need R (&gt;= 4.2), Rust (cargo + rustc &gt;= 1.88) and the usual R dev packages (<code>devtools</code>, <code>rextendr</code>, <code>testthat</code>, <code>pkgdown</code>).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/document.html" class="external-link">document</a></span><span class="op">(</span><span class="op">)</span>   <span class="co"># regenerates Rd + NAMESPACE (and Rust wrappers on build)</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/test.html" class="external-link">test</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/check.html" class="external-link">check</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">document</span><span class="op">(</span><span class="op">)</span>   <span class="co"># regenerates Rd + NAMESPACE (and Rust wrappers on build)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">test</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">check</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>The Rust sources live in <code>src/rust/</code>. After changing exported <code>#[extendr]</code> functions, rebuild so <code>R/extendr-wrappers.R</code> is regenerated (it is written by <code>cargo run --bin document</code> during the build).</p>
 <p>Run <code>cargo fmt</code> and <code>cargo clippy --lib</code> inside <code>src/rust/</code> before pushing; CI enforces both.</p>
 </div>
@@ -60,7 +60,7 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">tools/update-vendor.sh</span> <span class="op">&lt;</span>new-version<span class="op">&gt;</span></span></code></pre></div>
 <p>The script bumps the dependency in <code>src/rust/Cargo.toml</code>, refreshes <code>Cargo.lock</code>, re-vendors all crates into <code>src/rust/vendor.tar.xz</code> (the archive used for offline builds), and regenerates <code>inst/COPYRIGHTS</code>. Then:</p>
 <ol style="list-style-type: decimal"><li>update <code>Config/polyglotSQL/upstream</code> in <code>DESCRIPTION</code>;</li>
-<li>run the test suite (<code><a href="https://devtools.r-lib.org/reference/test.html" class="external-link">devtools::test()</a></code>), which asserts the linked crate version matches <code>DESCRIPTION</code>;</li>
+<li>run the test suite (<code>devtools::test()</code>), which asserts the linked crate version matches <code>DESCRIPTION</code>;</li>
 <li>mention the upgrade in <code>NEWS.md</code>.</li>
 </ol></div>
 <div class="section level2">
@@ -80,7 +80,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
     </footer></div>
