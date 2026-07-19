@@ -1,0 +1,94 @@
+url: https://milkway.github.io/polyglot-sql-r/
+
+template:
+  bootstrap: 5
+  light-switch: true
+  bslib:
+    primary: "#3b82f6"
+    secondary: "#2dd4bf"
+    link-color: "#1d4ed8"
+    link-color-dark: "#60a5fa"
+  opengraph:
+    image:
+      src: og-image.png
+      alt: "polyglotSQL — SQL parsing, analysis and dialect translation for R"
+
+home:
+  title: "polyglotSQL — SQL parsing, analysis and dialect translation for R"
+  description: >
+    Parse, tokenize, validate, format, analyze and translate SQL between
+    30+ dialects natively in R, powered by the polyglot-sql Rust crate.
+  links:
+    - text: Upstream Polyglot project
+      href: https://github.com/tobilg/polyglot
+    - text: polyglot-sql crate documentation (docs.rs)
+      href: https://docs.rs/polyglot-sql
+    - text: SQLGlot (Python original)
+      href: https://github.com/tobymao/sqlglot
+
+navbar:
+  structure:
+    left: [intro, articles, reference, news]
+    right: [search, github, lightswitch]
+  components:
+    articles:
+      text: Articles
+      menu:
+        - text: Migrating SQL between dialects
+          href: articles/dialect-migration.html
+        - text: Parsing, validation and lineage
+          href: articles/parsing-validation-lineage.html
+        - text: Installation and troubleshooting
+          href: articles/installation-and-troubleshooting.html
+    github:
+      icon: fab fa-github
+      href: https://github.com/milkway/polyglot-sql-r
+      aria-label: GitHub repository
+
+reference:
+  - title: Core
+    desc: Package and engine metadata.
+    contents:
+      - polyglotSQL-package
+      - polyglot_version
+
+  - title: Transpilation and Formatting
+    desc: Translate SQL between dialects and pretty-print it.
+    contents:
+      - sql_transpile
+      - sql_format
+      - sql_generate
+
+  - title: Parsing and Validation
+    desc: ASTs, tokens and multi-level validation.
+    contents:
+      - sql_parse
+      - sql_tokenize
+      - sql_validate
+
+  - title: Analysis and Lineage
+    desc: Structural facts, column lineage, optimization and diffing.
+    contents:
+      - sql_source_tables
+      - sql_lineage
+      - sql_analyze
+      - sql_optimize
+      - sql_diff
+      - sql_annotate_types
+      - sql_openlineage
+
+  - title: Metadata
+    desc: Dialect discovery and schema helpers.
+    contents:
+      - sql_dialects
+      - as_polyglot_schema
+
+footer:
+  structure:
+    left: [devel, polyglot]
+    right: built_with
+  components:
+    polyglot: >
+      Powered by [Polyglot](https://github.com/tobilg/polyglot) (Tobias Müller,
+      MIT) and derived from [SQLGlot](https://github.com/tobymao/sqlglot)
+      (Toby Mao, MIT).

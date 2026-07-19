@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-labelledby="ogTitle ogDesc">
+  <title id="ogTitle">polyglotSQL — SQL parsing, analysis and dialect translation for R</title>
+  <desc id="ogDesc">Social card with the polyglotSQL hexagonal logo and tagline on a navy background.</desc>
+  <defs>
+    <linearGradient id="ogBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0c1526"/>
+      <stop offset="1" stop-color="#080d1a"/>
+    </linearGradient>
+    <linearGradient id="ogBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="0.5" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="ogHexFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101b33"/>
+      <stop offset="1" stop-color="#0a1122"/>
+    </linearGradient>
+    <linearGradient id="ogHexRim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="0.5" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="ogDb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="ogA1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="ogA2" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#ogBg)"/>
+  <rect x="0" y="628" width="1280" height="12" fill="url(#ogBar)"/>
+
+  <!-- Hex mark (scaled copy of the icon) -->
+  <g transform="translate(90,110) scale(0.84)">
+    <polygon points="250,14 454.4,132 454.4,368 250,486 45.6,368 45.6,132"
+             fill="url(#ogHexFill)" stroke="url(#ogHexRim)" stroke-width="22"
+             stroke-linejoin="round"/>
+    <g stroke-linecap="round" fill="none">
+      <path d="M 105 213 A 150 150 0 0 1 395 213" stroke="url(#ogA1)" stroke-width="24"/>
+      <path d="M 395 287 A 150 150 0 0 1 105 287" stroke="url(#ogA2)" stroke-width="24"/>
+    </g>
+    <polygon points="395,180 395,246 435,213" fill="#3b82f6"/>
+    <polygon points="105,254 105,320 65,287" fill="#3b82f6"/>
+    <path d="M 172 200 v 100 a 78 28 0 0 0 156 0 v -100 z" fill="url(#ogDb)"/>
+    <ellipse cx="250" cy="200" rx="78" ry="28" fill="#60a5fa"/>
+    <path d="M 172 234 a 78 28 0 0 0 156 0" fill="none" stroke="#0a1122" stroke-width="9" stroke-linecap="round"/>
+    <path d="M 172 268 a 78 28 0 0 0 156 0" fill="none" stroke="#0a1122" stroke-width="9" stroke-linecap="round"/>
+  </g>
+
+  <!-- Copy -->
+  <g font-family="'Helvetica Neue', Helvetica, Arial, sans-serif">
+    <text x="560" y="260" font-size="88" font-weight="700" fill="#e6edf7">polyglot<tspan fill="#2dd4bf">SQL</tspan></text>
+    <text x="562" y="330" font-size="34" fill="#9fb1cc">SQL parsing, analysis and dialect</text>
+    <text x="562" y="378" font-size="34" fill="#9fb1cc">translation for R — powered by Rust</text>
+    <text x="562" y="452" font-size="27" fill="#5b6c88">30+ dialects · transpile · format · validate · lineage</text>
+  </g>
+</svg>

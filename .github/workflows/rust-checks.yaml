@@ -1,0 +1,44 @@
+name: rust-checks
+
+on:
+  push:
+    branches: [main, master]
+    paths: ['src/rust/**']
+  pull_request:
+    branches: [main, master]
+    paths: ['src/rust/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  fmt-clippy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Cache Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            src/rust/target
+          key: cargo-rustcheck-${{ hashFiles('src/rust/Cargo.lock') }}
+          restore-keys: cargo-rustcheck-
+
+      - name: rustfmt
+        working-directory: src/rust
+        run: cargo fmt --check
+
+      - name: clippy
+        working-directory: src/rust
+        # The library links against R at load time; clippy only type-checks,
+        # so no R installation is required here.
+        run: cargo clippy --lib -- -D warnings

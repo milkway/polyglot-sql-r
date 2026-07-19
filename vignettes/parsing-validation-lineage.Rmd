@@ -1,0 +1,127 @@
+---
+title: "Parsing, validation and lineage"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Parsing, validation and lineage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+```{r setup}
+library(polyglotSQL)
+```
+
+## The AST
+
+`sql_parse()` returns the full abstract syntax tree as nested R lists,
+following the upstream JSON AST format:
+
+```{r}
+ast <- sql_parse("SELECT a, SUM(b) AS total FROM t GROUP BY a")
+ast
+str(ast$statements[[1]], max.level = 3, list.len = 4)
+```
+
+The AST round-trips: `sql_generate()` renders it back to SQL in any dialect.
+
+## Tokens
+
+For lower-level tooling (syntax highlighting, linters), `sql_tokenize()`
+exposes the token stream with exact positions:
+
+```{r}
+sql_tokenize("SELECT a FROM t WHERE x = 'hé'")
+```
+
+## Validation
+
+Three layers of checking are available:
+
+```{r}
+# 1. Syntax only (default)
+sql_validate("SELECT FROM WHERE")
+
+# 2. Strict syntax + semantic lint warnings
+sql_validate("SELECT name, FROM employees", strict_syntax = TRUE)
+sql_validate("SELECT *, category FROM products LIMIT 10", semantic = TRUE)
+```
+
+The third layer is **schema-aware** validation. Describe your tables as a
+named list — names are tables, values are (optionally named) column vectors:
+
+```{r}
+schema <- list(
+  orders = c(o_id = "INT", o_user = "INT", o_total = "DECIMAL(10,2)"),
+  users  = c(id = "INT", name = "TEXT")
+)
+
+sql_validate("SELECT o_missing FROM orders", schema = schema)
+```
+
+Use `error = TRUE` to turn an invalid result into a
+`polyglot_validation_error` condition — convenient in pipelines.
+
+## Source tables
+
+```{r}
+sql_source_tables(
+  "WITH cte AS (SELECT id FROM base)
+   SELECT * FROM cte JOIN other USING (id)"
+)
+```
+
+Note the CTE itself is not listed — only physical sources are.
+
+## Column-level lineage
+
+`sql_lineage()` traces every output column through CTEs, subqueries and
+expressions down to source tables:
+
+```{r}
+lin <- sql_lineage(
+  "WITH base AS (SELECT id, amount FROM payments)
+   SELECT id, amount * 2 AS doubled FROM base"
+)
+lin
+```
+
+Each entry carries the full lineage tree:
+
+```{r}
+str(lin$columns[[2]]$tree, max.level = 2)
+```
+
+A schema improves resolution of unqualified or ambiguous columns, and
+`column =` restricts lineage to one output column.
+
+## Structural analysis
+
+`sql_analyze()` condenses a query into facts — shape, projections, relations,
+CTEs, set operations:
+
+```{r}
+a <- sql_analyze(
+  "WITH x AS (SELECT id FROM t)
+   SELECT x.id, UPPER(name) AS shout FROM x JOIN u ON x.id = u.id"
+)
+a
+vapply(a$projections, function(p) p$transformKind, character(1))
+```
+
+## OpenLineage export
+
+For data catalogs that speak
+[OpenLineage](https://openlineage.io/), `sql_openlineage()` emits a
+`columnLineage` facet with inferred input/output datasets:
+
+```{r}
+ol <- sql_openlineage(
+  "INSERT INTO reports SELECT id, total FROM sales",
+  namespace = "warehouse"
+)
+names(ol)
+```

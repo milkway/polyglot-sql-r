@@ -1,0 +1,17 @@
+Authors of polyglotSQL
+======================
+
+R package (wrapper):
+  André Leite <leite@de.ufpe.br>
+
+Embedded Rust engine:
+  polyglot-sql — the Polyglot project
+    Tobias Müller (TobiLG) <github@tobilg.com>
+    https://github.com/tobilg/polyglot
+
+  Derived from SQLGlot (Python):
+    Toby Mao
+    https://github.com/tobymao/sqlglot
+
+Vendored Rust crates: see inst/COPYRIGHTS for the complete inventory of
+crates, versions, licenses and authors.

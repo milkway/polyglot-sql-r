@@ -1,0 +1,218 @@
+Copyright and license inventory for polyglotSQL
+===============================================
+
+The polyglotSQL R package is distributed under the MIT license (see the
+package LICENSE file). Its compiled library statically links the Rust crates
+listed below, which are vendored in the source package
+(src/rust/vendor.tar.xz).
+
+Primary upstream
+----------------
+
+polyglot-sql (the Polyglot project)
+  https://github.com/tobilg/polyglot
+  License: MIT
+  Copyright (c) 2026 TobiLG <github@tobilg.com>
+
+  Polyglot is derived from SQLGlot:
+
+SQLGlot
+  https://github.com/tobymao/sqlglot
+  License: MIT
+  Copyright (c) 2026 Toby Mao
+
+  The full text of both MIT notices is reproduced at the end of this file.
+
+Vendored Rust crates
+--------------------
+
+ar_archive_writer 0.5.2
+  License: Apache-2.0 WITH LLVM-exception
+
+cc 1.3.0
+  License: MIT OR Apache-2.0
+  Author: Alex Crichton <alex@alexcrichton.com>
+
+cfg-if 1.0.4
+  License: MIT OR Apache-2.0
+  Author: Alex Crichton <alex@alexcrichton.com>
+
+extendr-api 0.9.0
+  License: MIT
+
+extendr-ffi 0.9.0
+  License: MIT
+
+extendr-macros 0.9.0
+  License: MIT
+
+find-msvc-tools 0.1.9
+  License: MIT OR Apache-2.0
+
+itoa 1.0.18
+  License: MIT OR Apache-2.0
+  Author: David Tolnay <dtolnay@gmail.com>
+
+lazy_static 1.5.0
+  License: MIT OR Apache-2.0
+  Author: Marvin Löbel <loebel.marvin@gmail.com>
+
+libc 0.2.186
+  License: MIT OR Apache-2.0
+  Author: The Rust Project Developers
+
+memchr 2.8.3
+  License: Unlicense OR MIT
+  Author: Andrew Gallant <jamslam@gmail.com>
+  Author: bluss
+
+object 0.37.3
+  License: Apache-2.0 OR MIT
+
+once_cell 1.21.4
+  License: MIT OR Apache-2.0
+  Author: Aleksey Kladov <aleksey.kladov@gmail.com>
+
+paste 1.0.15
+  License: MIT OR Apache-2.0
+  Author: David Tolnay <dtolnay@gmail.com>
+
+polyglot-sql 0.6.2
+  License: MIT
+
+polyglot-sql-ast-derive 0.6.2
+  License: MIT
+  Author: polyglot contributors
+
+proc-macro2 1.0.107
+  License: MIT OR Apache-2.0
+  Author: David Tolnay <dtolnay@gmail.com>
+  Author: Alex Crichton <alex@alexcrichton.com>
+
+psm 0.1.31
+  License: MIT OR Apache-2.0
+  Author: Simonas Kazlauskas <psm@kazlauskas.me>
+
+quote 1.0.47
+  License: MIT OR Apache-2.0
+  Author: David Tolnay <dtolnay@gmail.com>
+
+readonly 0.2.14
+  License: MIT OR Apache-2.0
+  Author: David Tolnay <dtolnay@gmail.com>
+
+serde 1.0.229
+  License: MIT OR Apache-2.0
+  Author: Erick Tryzelaar <erick.tryzelaar@gmail.com>
+  Author: David Tolnay <dtolnay@gmail.com>
+
+serde_core 1.0.229
+  License: MIT OR Apache-2.0
+  Author: Erick Tryzelaar <erick.tryzelaar@gmail.com>
+  Author: David Tolnay <dtolnay@gmail.com>
+
+serde_derive 1.0.229
+  License: MIT OR Apache-2.0
+  Author: Erick Tryzelaar <erick.tryzelaar@gmail.com>
+  Author: David Tolnay <dtolnay@gmail.com>
+
+serde_json 1.0.150
+  License: MIT OR Apache-2.0
+  Author: Erick Tryzelaar <erick.tryzelaar@gmail.com>
+  Author: David Tolnay <dtolnay@gmail.com>
+
+shlex 2.0.1
+  License: MIT OR Apache-2.0
+  Author: comex <comexk@gmail.com>
+  Author: Fenhl <fenhl@fenhl.net>
+  Author: Adrian Taylor <adetaylor@chromium.org>
+  Author: Alex Touchet <alextouchet@outlook.com>
+  Author: Daniel Parks <dp+git@oxidized.org>
+  Author: Garrett Berg <googberg@gmail.com>
+
+stacker 0.1.24
+  License: MIT OR Apache-2.0
+  Author: Alex Crichton <alex@alexcrichton.com>
+  Author: Simonas Kazlauskas <stacker@kazlauskas.me>
+
+syn 3.0.0
+  License: MIT OR Apache-2.0
+  Author: David Tolnay <dtolnay@gmail.com>
+
+syn 2.0.119
+  License: MIT OR Apache-2.0
+  Author: David Tolnay <dtolnay@gmail.com>
+
+thiserror 1.0.69
+  License: MIT OR Apache-2.0
+  Author: David Tolnay <dtolnay@gmail.com>
+
+thiserror-impl 1.0.69
+  License: MIT OR Apache-2.0
+  Author: David Tolnay <dtolnay@gmail.com>
+
+unicode-ident 1.0.24
+  License: (MIT OR Apache-2.0) AND Unicode-3.0
+  Author: David Tolnay <dtolnay@gmail.com>
+
+unicode-segmentation 1.13.3
+  License: MIT OR Apache-2.0
+  Author: kwantam <kwantam@gmail.com>
+  Author: Manish Goregaokar <manishsmail@gmail.com>
+
+windows-link 0.2.1
+  License: MIT OR Apache-2.0
+
+windows-sys 0.61.2
+  License: MIT OR Apache-2.0
+
+zmij 1.0.23
+  License: MIT
+  Author: David Tolnay <dtolnay@gmail.com>
+
+Full license texts
+------------------
+
+MIT License (Polyglot)
+
+Copyright (c) 2026 TobiLG <github@tobilg.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+MIT License (SQLGlot)
+
+Copyright (c) 2026 Toby Mao
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

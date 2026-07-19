@@ -1,0 +1,41 @@
+[package]
+name = 'polyglotsql'
+publish = false
+version = '0.1.0'
+edition = '2021'
+# Keep in sync with DESCRIPTION SystemRequirements.
+# This is the maximum rust-version declared across all vendored dependencies
+# (currently ar_archive_writer 0.5.2 -> 1.88); re-verify after updating the
+# vendor tree (see tools/update-vendor.sh).
+rust-version = '1.88'
+
+[lib]
+crate-type = ['rlib', 'staticlib']
+name = 'polyglotsql'
+
+[[bin]]
+name = 'document'
+path = 'document.rs'
+
+[dependencies]
+extendr-api = '0.9'
+serde_json = '1.0'
+
+[dependencies.polyglot-sql]
+version = '0.6.2'
+default-features = false
+features = [
+  'all-dialects',
+  'transpile',
+  'semantic',
+  'openlineage',
+  'diff',
+  'stacker',
+]
+
+[profile.release]
+lto = true
+codegen-units = 1
+# Panics must unwind so that extendr can catch them at the FFI boundary and
+# convert them into R errors instead of aborting the R session.
+panic = 'unwind'

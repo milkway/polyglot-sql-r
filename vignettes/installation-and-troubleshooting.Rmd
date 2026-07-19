@@ -1,0 +1,112 @@
+---
+title: "Installation and troubleshooting"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Installation and troubleshooting}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", eval = FALSE)
+```
+
+## Requirements
+
+polyglotSQL has a compiled Rust backend. To install **from source** you need:
+
+* R >= 4.2
+* Rust: **cargo** and **rustc >= 1.88**
+* the `xz` utility (to unpack the vendored dependencies; present on
+  virtually every system)
+
+No Rust is needed when installing a prebuilt binary (e.g. from CI artifacts
+or a binary repository).
+
+## Installing Rust
+
+The recommended path on every platform is [rustup](https://rustup.rs):
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+Alternatives: `brew install rust` (macOS), `apt-get install cargo rustc`
+(Debian/Ubuntu — check the version!), the official Windows installer from
+<https://forge.rust-lang.org/infra/other-installation-methods.html>. On
+Windows, the `gnu` toolchain targeting `x86_64-pc-windows-gnu` is required
+for R; rustup installs it with:
+
+```sh
+rustup target add x86_64-pc-windows-gnu
+```
+
+The package's `configure` script checks the toolchain up front and prints
+exactly what is missing (it never installs anything itself).
+
+## Installing the package
+
+```{r}
+# install.packages("remotes")
+remotes::install_github("milkway/polyglot-sql-r")
+```
+
+## Offline / air-gapped builds
+
+The source package ships all Rust dependencies as a vendored archive
+(`src/rust/vendor.tar.xz`), and the build runs `cargo` with `--offline`.
+**Nothing is downloaded during `R CMD INSTALL`** — an internet connection is
+only needed to obtain the package itself.
+
+## Build details you may care about
+
+* Compilation uses at most **2 parallel jobs** (CRAN policy).
+* The Rust static library is linked into a single shared object; the
+  installed package has no runtime dependency on cargo.
+* `DEBUG=true R CMD INSTALL .` produces a debug build (faster compile,
+  slower runtime).
+
+## Troubleshooting
+
+### `cargo: command not found` / configure fails
+
+Rust is not on the `PATH` R uses. After installing via rustup, restart R so
+`~/.cargo/bin` (added to your shell profile) is visible, or add it manually:
+
+```r
+Sys.setenv(PATH = paste0(Sys.getenv("PATH"), ":", path.expand("~/.cargo/bin")))
+```
+
+### `rustc >= 1.88 required`
+
+Distribution packages are often too old. Install via rustup, or update with
+`rustup update stable`.
+
+### Linker errors on macOS
+
+Install the Xcode command-line tools: `xcode-select --install`.
+
+### Windows: `cannot find -lpolyglotsql` or wrong target
+
+Make sure the `x86_64-pc-windows-gnu` target is installed (see above) and
+that you are using Rtools matching your R version.
+
+### Updating the embedded engine (for developers)
+
+The upstream crate version is pinned in `src/rust/Cargo.toml` and
+`Cargo.lock`, and its sources are vendored. To upgrade:
+
+```sh
+tools/update-vendor.sh 0.6.3   # bumps polyglot-sql, re-vendors, re-packs
+```
+
+then update `Config/polyglotSQL/upstream` in `DESCRIPTION`, run the test
+suite, and check `polyglot_version()` reports the new version.
+
+## Verifying an installation
+
+```{r}
+library(polyglotSQL)
+polyglot_version()
+sql_transpile("SELECT IFNULL(a, b) FROM t", from = "mysql", to = "postgres")
+```
