@@ -33,12 +33,16 @@ jobs:
           key: cargo-rustcheck-${{ hashFiles('src/rust/Cargo.lock') }}
           restore-keys: cargo-rustcheck-
 
+      # extendr-api's build script queries the local R installation,
+      # so R is required even though clippy only type-checks.
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
       - name: rustfmt
         working-directory: src/rust
         run: cargo fmt --check
 
       - name: clippy
         working-directory: src/rust
-        # The library links against R at load time; clippy only type-checks,
-        # so no R installation is required here.
         run: cargo clippy --lib -- -D warnings
