@@ -48,7 +48,7 @@ exactly what is missing (it never installs anything itself).
 
 ```{r}
 # install.packages("remotes")
-remotes::install_github("milkway/polyglot-sql-r")
+remotes::install_github("StrategicProjects/polyglot-sql-r")
 ```
 
 ## Offline / air-gapped builds

@@ -5,10 +5,10 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/milkway/polyglot-sql-r/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/milkway/polyglot-sql-r/actions/workflows/R-CMD-check.yaml)
-[![pkgdown](https://github.com/milkway/polyglot-sql-r/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/milkway/polyglot-sql-r/actions/workflows/pkgdown.yaml)
+[![R-CMD-check](https://github.com/StrategicProjects/polyglot-sql-r/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/StrategicProjects/polyglot-sql-r/actions/workflows/R-CMD-check.yaml)
+[![pkgdown](https://github.com/StrategicProjects/polyglot-sql-r/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/StrategicProjects/polyglot-sql-r/actions/workflows/pkgdown.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/milkway/polyglot-sql-r/graph/badge.svg)](https://app.codecov.io/gh/milkway/polyglot-sql-r)
+coverage](https://codecov.io/gh/StrategicProjects/polyglot-sql-r/graph/badge.svg)](https://app.codecov.io/gh/StrategicProjects/polyglot-sql-r)
 [![License:
 MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/license/mit)
 <!-- badges: end -->
@@ -54,7 +54,7 @@ Then:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("milkway/polyglot-sql-r")
+remotes::install_github("StrategicProjects/polyglot-sql-r")
 ```
 
 The package builds fully offline: all Rust dependencies are vendored in
@@ -172,4 +172,4 @@ polyglotSQL (MIT) statically links the
 Müller (MIT), which derives from
 [SQLGlot](https://github.com/tobymao/sqlglot) by Toby Mao (MIT).
 Licenses of all vendored Rust crates are collected in
-[`inst/COPYRIGHTS`](https://github.com/milkway/polyglot-sql-r/blob/main/inst/COPYRIGHTS).
+[`inst/COPYRIGHTS`](https://github.com/StrategicProjects/polyglot-sql-r/blob/main/inst/COPYRIGHTS).

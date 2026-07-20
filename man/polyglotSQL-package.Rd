@@ -21,9 +21,9 @@ Rust crate by Tobias Müller (MIT), which is a Rust port of
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/milkway/polyglot-sql-r}
-  \item \url{https://milkway.github.io/polyglot-sql-r/}
-  \item Report bugs at \url{https://github.com/milkway/polyglot-sql-r/issues}
+  \item \url{https://github.com/StrategicProjects/polyglot-sql-r}
+  \item \url{https://strategicprojects.github.io/polyglot-sql-r/}
+  \item Report bugs at \url{https://github.com/StrategicProjects/polyglot-sql-r/issues}
 }
 
 }
