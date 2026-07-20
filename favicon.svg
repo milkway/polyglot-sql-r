@@ -28,11 +28,11 @@
            fill="url(#fHexFill)" stroke="url(#fHexRim)" stroke-width="22"
            stroke-linejoin="round"/>
   <g stroke-linecap="round" fill="none">
-    <path d="M 105 213 A 150 150 0 0 1 395 213" stroke="url(#fArrowTop)" stroke-width="24"/>
-    <path d="M 395 287 A 150 150 0 0 1 105 287" stroke="url(#fArrowBottom)" stroke-width="24"/>
+    <path d="M 109 198.7 A 150 150 0 0 1 391 198.7" stroke="url(#fArrowTop)" stroke-width="24"/>
+    <path d="M 391 301.3 A 150 150 0 0 1 109 301.3" stroke="url(#fArrowBottom)" stroke-width="24"/>
   </g>
-  <polygon points="395,180 395,246 435,213" fill="#3b82f6"/>
-  <polygon points="105,254 105,320 65,287" fill="#3b82f6"/>
+  <polygon points="-10,-25 34,0 -10,25" fill="#3b82f6" transform="translate(391,198.7) rotate(70)"/>
+  <polygon points="-10,-25 34,0 -10,25" fill="#3b82f6" transform="translate(109,301.3) rotate(250)"/>
   <g>
     <path d="M 172 200 v 100 a 78 28 0 0 0 156 0 v -100 z" fill="url(#fDbFill)"/>
     <ellipse cx="250" cy="200" rx="78" ry="28" fill="#60a5fa"/>
